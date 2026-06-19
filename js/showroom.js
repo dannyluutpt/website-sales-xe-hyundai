@@ -98,9 +98,9 @@ export function setupShowroom() {
       specDimensions.textContent = currentCar.specs.dimensions;
       specWheelbase.textContent = currentCar.specs.wheelbase;
 
-      // Update Car Image & Default Color CSS Filter
-      showroomImg.src = currentCar.image;
-      showroomImg.style.filter = currentCar.colors[0].filter;
+      // Update Car Image & Default Color
+      showroomImg.src = currentCar.colors[0].image || currentCar.image;
+      showroomImg.style.filter = "none";
 
       // Update Color Swatches
       renderColors(currentCar);
@@ -139,8 +139,11 @@ export function setupShowroom() {
         // Update color label
         colorName.textContent = color.name;
 
-        // Apply dynamic filter to the car image
-        showroomImg.style.filter = color.filter;
+        // Apply direct image source instead of CSS filter
+        if (color.image) {
+          showroomImg.src = color.image;
+        }
+        showroomImg.style.filter = "none";
       });
 
       colorContainer.appendChild(btn);
