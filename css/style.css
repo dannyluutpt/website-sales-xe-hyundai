@@ -1,0 +1,2417 @@
+/* 
+  Hyundai Sales Consultant - Brand Guidelines Compliant Design System
+  Language: Vanilla CSS3
+  Guidelines: Bright & Sleek, Hyundai Blue (#002c5f) & Hyundai Sand (#e4dcd3)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Official Brand Colors (Hyundai Graphic Manual Page 254) */
+  --hyundai-navy: #002c5f;          /* Hyundai Blue (PMS 654 C) */
+  --hyundai-cyan: #00aad2;          /* Progressive Blue / Active Blue (PMS 312 C) */
+  --hyundai-sand: #e4dcd3;          /* Hyundai Sand (PMS Warm Gray 1 C) */
+  --hyundai-light-sand: #f6f3f2;    /* Hyundai Light Sand (Warm Gray 1 C 30%) */
+  
+  /* UI Layout Colors - Light Theme (Bright & Sleek) */
+  --body-bg: var(--hyundai-light-sand);
+  --panel-bg: #ffffff;
+  
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(0, 44, 95, 0.08);
+  --glass-bg-hover: rgba(255, 255, 255, 0.9);
+  --glass-border-hover: rgba(0, 44, 95, 0.16);
+  
+  --text-primary: #1e293b;          /* Dark slate for high contrast readability */
+  --text-secondary: #475569;        /* Medium slate */
+  --text-muted: #64748b;            /* Soft slate */
+  
+  --accent-green: #10b981;          /* Support positive actions */
+  --accent-red: #d32f2f;            /* Support negative actions (Active Red equivalent) */
+
+  /* Typography */
+  --font-family: 'Outfit', sans-serif;
+  
+  /* UI Constants */
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-glow: 0 4px 20px rgba(0, 44, 95, 0.12);
+  --shadow-blue-glow: 0 4px 20px rgba(0, 170, 210, 0.15);
+}
+
+/* -------------------------------------------------------------
+   1. General Reset & Base Styles
+------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--hyundai-light-sand);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hyundai-navy);
+  border-radius: 5px;
+  border: 2px solid var(--hyundai-light-sand);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hyundai-cyan);
+}
+
+/* Typography & Layouts */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--hyundai-navy); /* Headings should stand out in brand Blue */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--hyundai-navy) 40%, var(--hyundai-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism Panel Utility (Light, Bright & Sleek) */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 8px 30px rgba(0, 44, 95, 0.05);
+  transition: var(--transition-smooth);
+}
+
+.glass-panel:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 10px 35px rgba(0, 44, 95, 0.08);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary {
+  background: var(--hyundai-navy);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 44, 95, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--hyundai-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 170, 210, 0.3);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  border: 1px solid var(--hyundai-sand);
+  color: var(--hyundai-navy);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.btn-secondary:hover {
+  background: var(--hyundai-light-sand);
+  border-color: var(--text-secondary);
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border: 1px solid var(--hyundai-navy);
+  color: var(--hyundai-navy);
+}
+
+.btn-outline-primary:hover {
+  background: rgba(0, 44, 95, 0.05);
+  transform: translateY(-2px);
+}
+
+/* -------------------------------------------------------------
+   2. Header & Navigation (White and Blue accents)
+------------------------------------------------------------- */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 0;
+  transition: var(--transition-smooth);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 44, 95, 0.06);
+  box-shadow: 0 4px 25px rgba(0, 44, 95, 0.04);
+}
+
+.main-header.sticky {
+  padding: 12px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--hyundai-navy);
+}
+
+.logo-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--hyundai-sand);
+}
+
+.logo-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--hyundai-navy);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background-color: var(--hyundai-navy);
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.header-cta .btn {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+}
+
+/* Mobile Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--hyundai-navy);
+  transition: var(--transition-smooth);
+}
+
+/* -------------------------------------------------------------
+   3. Interactive Particle Canvas Background (Light)
+------------------------------------------------------------- */
+#particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: auto;
+}
+
+/* -------------------------------------------------------------
+   4. Showroom Section (Light sand & clean white)
+------------------------------------------------------------- */
+/* -------------------------------------------------------------
+   Hero Carousel Slider Section
+------------------------------------------------------------- */
+.hero-carousel-section {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 480px;
+  max-height: 750px;
+  margin-top: 80px;
+  overflow: hidden;
+  background: var(--hyundai-light-sand);
+  border-bottom: 1px solid rgba(0, 44, 95, 0.05);
+}
+
+.hero-slider {
+  display: flex;
+  width: 400%; /* 4 slides */
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.hero-slide {
+  width: 25%;
+  flex-shrink: 0;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+@media (max-width: 991px) {
+  .hero-carousel-section {
+    height: 50vh;
+    min-height: 350px;
+    margin-top: 65px;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-carousel-section {
+    height: 35vh;
+    min-height: 220px;
+  }
+}
+
+.slide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 992px) {
+  .slide-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.slide-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.hero-slide.active .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(0, 170, 210, 0.1);
+  color: var(--hyundai-cyan);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.slide-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--hyundai-navy);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .slide-title {
+    font-size: 3.2rem;
+  }
+}
+
+.slide-tagline {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.slide-price {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.slide-price strong {
+  font-size: 1.6rem;
+  color: var(--hyundai-navy);
+}
+
+.slide-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.slide-feat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.slide-feat i {
+  color: var(--hyundai-cyan);
+  font-size: 1.1rem;
+  width: 20px;
+}
+
+.slide-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.slide-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.9) translateX(30px);
+  transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+}
+
+.hero-slide.active .slide-visual {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+
+.slide-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--slide-glow, rgba(0, 44, 95, 0.05)) 0%, transparent 65%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.slide-car-img {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 20px 35px rgba(0, 44, 95, 0.15));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Arrows controls */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--hyundai-navy);
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.carousel-arrow:hover {
+  background: var(--hyundai-navy);
+  color: #fff;
+  border-color: var(--hyundai-navy);
+  box-shadow: 0 4px 15px rgba(0, 44, 95, 0.2);
+}
+
+.prev-arrow {
+  left: 20px;
+}
+
+.next-arrow {
+  right: 20px;
+}
+
+/* Dots pagination */
+.carousel-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 20px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--hyundai-sand);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.carousel-dot.active {
+  background: var(--hyundai-navy);
+  width: 36px;
+}
+
+/* Showroom Section */
+.showroom-section {
+  padding: 80px 0;
+  overflow: hidden;
+  background: radial-gradient(circle at center bottom, rgba(228, 220, 211, 0.4), var(--hyundai-light-sand));
+}
+
+.showroom-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Showroom Navigation Menu */
+.showroom-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.showroom-car-btn {
+  background: #ffffff;
+  border: 1px solid var(--hyundai-sand);
+  color: var(--text-secondary);
+  padding: 10px 20px;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-family);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.01);
+}
+
+.showroom-car-btn:hover {
+  background: var(--hyundai-light-sand);
+  color: var(--hyundai-navy);
+}
+
+.showroom-car-btn.active {
+  background: var(--hyundai-navy);
+  border-color: var(--hyundai-navy);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 44, 95, 0.15);
+}
+
+/* Showroom Visual Area */
+.showroom-visual {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  background: #ffffff; /* Clean white backdrop for the car */
+}
+
+.showroom-car-display {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.showroom-bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(0, 44, 95, 0.03) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+#showroom-car-img {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  transition: filter 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  filter: drop-shadow(0 20px 30px rgba(0, 44, 95, 0.12));
+}
+
+/* Hotspots Styling */
+.showroom-hotspots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.hotspot {
+  position: absolute;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+
+.hotspot-dot {
+  width: 16px;
+  height: 16px;
+  background-color: var(--hyundai-navy);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 44, 95, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.hotspot-dot:hover {
+  transform: scale(1.3);
+  background-color: var(--hyundai-cyan);
+}
+
+.hotspot-dot::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 2px solid var(--hyundai-navy);
+  border-radius: 50%;
+  animation: pulse 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+.hotspot-tooltip {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9) translateY(10px);
+  width: 250px;
+  padding: 16px;
+  background: rgba(0, 44, 95, 0.95); /* High-contrast navy tooltip background */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-sm);
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 25px rgba(0, 44, 95, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  text-align: left;
+}
+
+.hotspot:hover .hotspot-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.hotspot-tooltip h4 {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: var(--hyundai-cyan);
+  font-weight: 700;
+}
+
+.hotspot-tooltip p {
+  font-size: 0.8rem;
+  color: #e2e8f0;
+  line-height: 1.4;
+}
+
+.hotspot-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0, 44, 95, 0.95) transparent transparent transparent;
+}
+
+/* Showroom Controls */
+.showroom-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .showroom-container {
+    grid-template-columns: 1fr;
+  }
+  .showroom-info {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.showroom-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.car-name-wrap h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--hyundai-navy);
+  margin-bottom: 5px;
+}
+
+.car-tagline {
+  font-size: 1.25rem;
+  color: var(--hyundai-cyan);
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.car-price-tag {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.car-price-tag span {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.car-price-tag strong {
+  font-size: 1.8rem;
+  color: var(--hyundai-navy);
+  font-weight: 800;
+}
+
+/* Color Customizer Swatches */
+.color-customizer {
+  margin-bottom: 30px;
+}
+
+.color-customizer h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+.color-options-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.color-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.color-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--hyundai-sand);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.color-dot.active {
+  transform: scale(1.15);
+  border-color: var(--hyundai-navy);
+  border-width: 2.5px;
+  box-shadow: 0 0 10px rgba(0, 44, 95, 0.25);
+}
+
+#showroom-color-name {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Showroom Technical Specs Grid */
+.showroom-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.spec-box {
+  padding: 16px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 44, 95, 0.02);
+  border: 1px solid rgba(0, 44, 95, 0.04);
+}
+
+.spec-box span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.spec-box strong {
+  font-size: 1.05rem;
+  color: var(--hyundai-navy);
+  font-weight: 700;
+}
+
+/* -------------------------------------------------------------
+   5. Fleet Grid Section
+------------------------------------------------------------- */
+.fleet-section {
+  background: #ffffff;
+}
+
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.car-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+
+.car-card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: var(--border-radius-sm);
+  background: radial-gradient(circle, rgba(0, 44, 95, 0.02) 0%, transparent 80%);
+}
+
+.car-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: var(--transition-smooth);
+}
+
+.car-card:hover .car-card-img {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.car-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.tag-sedan { background: rgba(59, 130, 246, 0.1); color: #2563eb; border: 1px solid rgba(59, 130, 246, 0.2); }
+.tag-suv { background: rgba(16, 185, 129, 0.1); color: #059669; border: 1px solid rgba(16, 185, 129, 0.2); }
+.tag-mpv { background: rgba(245, 158, 11, 0.1); color: #d97706; border: 1px solid rgba(245, 158, 11, 0.2); }
+.tag-ev { background: rgba(6, 182, 212, 0.1); color: #0891b2; border: 1px solid rgba(6, 182, 212, 0.2); }
+
+.car-card-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.car-card-info h3 {
+  font-size: 1.35rem;
+  color: var(--hyundai-navy);
+  margin-bottom: 4px;
+}
+
+.car-card-tagline {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.car-card-price {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 15px;
+}
+
+.car-card-price span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.car-card-price strong {
+  font-size: 1.4rem;
+  color: var(--hyundai-navy);
+  font-weight: 700;
+}
+
+.car-card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.car-card-features i {
+  color: var(--hyundai-cyan);
+  margin-right: 4px;
+}
+
+.car-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.car-card-actions .btn {
+  padding: 8px 10px;
+  font-size: 0.85rem;
+}
+
+.btn-explore-trigger {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.85rem;
+}
+
+/* -------------------------------------------------------------
+   6. Compare Drawer and Compare Modal (Bright Glass design)
+------------------------------------------------------------- */
+.compare-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  width: 90%;
+  max-width: 700px;
+  z-index: 90;
+  padding: 16px 24px;
+  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+  border-bottom: none;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid var(--hyundai-sand);
+  box-shadow: 0 -10px 40px rgba(0, 44, 95, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.compare-drawer.active {
+  transform: translate(-50%, 0);
+}
+
+.compare-drawer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.compare-title-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--hyundai-navy);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.compare-drawer-items {
+  display: flex;
+  gap: 12px;
+}
+
+.compare-drawer-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--hyundai-light-sand);
+  border: 1px solid var(--hyundai-sand);
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  color: var(--hyundai-navy);
+  font-weight: 600;
+}
+
+.compare-drawer-item img {
+  height: 24px;
+  object-fit: contain;
+}
+
+.remove-item-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.remove-item-btn:hover {
+  color: var(--accent-red);
+}
+
+.compare-drawer-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.compare-drawer-actions .btn {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+/* Compare Modal */
+.compare-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 150;
+  background: rgba(0, 44, 95, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+}
+
+.compare-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.compare-modal-box {
+  width: 95%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--border-radius-lg);
+  background: #ffffff;
+  border: 1.5px solid var(--hyundai-sand);
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 44, 95, 0.15);
+}
+
+.compare-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--hyundai-light-sand);
+  border: 1px solid var(--hyundai-sand);
+  color: var(--hyundai-navy);
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.compare-modal-close:hover {
+  background: var(--hyundai-sand);
+  transform: rotate(90deg);
+}
+
+.compare-modal-header {
+  margin-bottom: 30px;
+}
+
+.compare-modal-header h2 {
+  font-size: 2rem;
+  color: var(--hyundai-navy);
+}
+
+.compare-modal-header p {
+  color: var(--text-secondary);
+}
+
+/* Flat Grid-based comparison table */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.2fr;
+  gap: 1.5px;
+  background: var(--hyundai-sand); 
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  border: 1.5px solid var(--hyundai-sand);
+  box-shadow: 0 4px 20px rgba(0, 44, 95, 0.04);
+}
+
+.compare-cell {
+  padding: 16px 24px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.compare-cell.label-cell {
+  background: var(--hyundai-light-sand);
+  font-weight: 700;
+  color: var(--hyundai-navy);
+}
+
+.compare-cell.value-cell {
+  justify-content: center;
+  text-align: center;
+}
+
+.compare-cell.header-cell {
+  padding: 24px;
+  min-height: 180px;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 2px solid var(--hyundai-sand);
+}
+
+.compare-cell.header-cell.label-cell {
+  font-size: 1.1rem;
+}
+
+.compare-cell.header-cell img {
+  max-width: 150px;
+  max-height: 80px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));
+}
+
+.compare-cell.header-cell h3 {
+  font-size: 1.2rem;
+  color: var(--hyundai-navy);
+  margin-bottom: 4px;
+}
+
+.compare-cell.header-cell p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.compare-cell.bullet-cell {
+  align-items: flex-start;
+  text-align: left;
+  min-height: 140px;
+}
+
+.compare-cell.bullet-cell ul {
+  padding-left: 20px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.compare-cell.bullet-cell li {
+  margin-bottom: 6px;
+}
+
+/* Spec comparison highlight */
+.better-highlight {
+  background: rgba(0, 170, 210, 0.04) !important;
+  box-shadow: inset 3px 0 0 var(--hyundai-cyan), inset -3px 0 0 var(--hyundai-cyan);
+  font-weight: 700;
+}
+
+/* -------------------------------------------------------------
+   7. Loan & Installment Calculator Section
+------------------------------------------------------------- */
+.calculator-section {
+  background: radial-gradient(circle at left center, rgba(228, 220, 211, 0.3), var(--hyundai-light-sand));
+}
+
+.calc-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 992px) {
+  .calc-wrap {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+/* Tabs switcher */
+.calc-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--hyundai-sand);
+  margin-bottom: 30px;
+  gap: 15px;
+}
+
+.calc-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 12px 6px;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.calc-tab-btn:hover {
+  color: var(--hyundai-navy);
+}
+
+.calc-tab-btn.active {
+  color: var(--hyundai-navy);
+}
+
+.calc-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--hyundai-navy);
+  border-radius: 3px 3px 0 0;
+}
+
+.calc-tab-panel {
+  display: none;
+}
+
+.calc-tab-panel.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Calculator Form Elements */
+.calc-inputs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group-full {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--hyundai-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Premium Light Form Styling */
+.form-select, .form-input {
+  background: #ffffff;
+  border: 1px solid var(--hyundai-sand);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  transition: var(--transition-smooth);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.form-select option {
+  background: #ffffff;
+  color: var(--text-primary);
+}
+
+.form-select:focus, .form-input:focus {
+  border-color: var(--hyundai-navy);
+  box-shadow: 0 0 8px rgba(0, 44, 95, 0.1);
+  background: #ffffff;
+}
+
+/* Sliders */
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-labels label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--hyundai-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.slider-value {
+  font-size: 1.1rem;
+  color: var(--hyundai-cyan);
+  font-weight: 700;
+}
+
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.custom-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--hyundai-sand);
+  border-radius: 5px;
+  outline: none;
+}
+
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--hyundai-navy);
+  box-shadow: 0 0 6px rgba(0, 44, 95, 0.3);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.custom-range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--hyundai-cyan);
+}
+
+.slider-subval {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: -8px;
+}
+
+/* Output breakdown layout */
+.calc-outputs {
+  padding: 30px;
+}
+
+.calc-outputs h3 {
+  font-size: 1.4rem;
+  color: var(--hyundai-navy);
+  margin-bottom: 25px;
+  border-bottom: 1.5px solid var(--hyundai-sand);
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calc-outputs h3 i {
+  color: var(--hyundai-cyan);
+}
+
+.cost-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.cost-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.cost-row.total-row {
+  border-top: 1.5px solid var(--hyundai-sand);
+  padding-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.cost-row.total-row strong {
+  font-size: 1.6rem;
+  color: var(--hyundai-navy);
+  text-shadow: 0 2px 4px rgba(0, 44, 95, 0.05);
+}
+
+.cost-row span {
+  color: var(--text-secondary);
+}
+
+.cost-row strong {
+  color: var(--text-primary);
+}
+
+/* Donut Chart (Matches light panel) */
+.chart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1.5px solid var(--hyundai-sand);
+}
+
+.donut-chart-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+}
+
+.donut-chart {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: background 0.4s ease;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donut-chart::after {
+  content: '';
+  position: absolute;
+  inset: 22px; 
+  background: #ffffff; /* Matches white panel background */
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.chart-legends {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+.legend-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-color.prep { background-color: var(--hyundai-navy); }
+.legend-color.loan { background-color: var(--hyundai-cyan); }
+.legend-color.interest { background-color: #cbd5e1; /* Light gray */ }
+
+.legend-val {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  padding-left: 16px;
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------
+   8. Multi-step Booking Wizard
+------------------------------------------------------------- */
+.booking-section {
+  background: #ffffff;
+}
+
+.wizard-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid var(--glass-border);
+}
+
+/* Progress indicator steps */
+.wizard-progress {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.wizard-progress-bar {
+  position: absolute;
+  top: 15px;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background-color: var(--hyundai-sand);
+  z-index: 0;
+}
+
+.wizard-progress-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--hyundai-navy);
+  box-shadow: 0 0 10px rgba(0, 44, 95, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.wizard-indicator-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+}
+
+.step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid var(--hyundai-sand);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: var(--transition-smooth);
+}
+
+.wizard-indicator-step.active .step-num {
+  background-color: var(--hyundai-navy);
+  border-color: var(--hyundai-navy);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 44, 95, 0.2);
+}
+
+.step-label {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+  width: 100px;
+}
+
+.wizard-indicator-step.active .step-label {
+  color: var(--hyundai-navy);
+}
+
+/* Wizard steps panels */
+.wizard-step-panel {
+  display: none;
+}
+
+.wizard-step-panel.active {
+  display: block;
+  animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wizard-step-panel h3 {
+  font-size: 1.4rem;
+  color: var(--hyundai-navy);
+  margin-bottom: 8px;
+}
+
+.wizard-step-panel p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+.wizard-step-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 576px) {
+  .wizard-step-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Custom interactive Radio buttons for Service selection */
+.wizard-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.wizard-service-card {
+  position: relative;
+}
+
+.wizard-service-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.wizard-service-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  border-radius: var(--border-radius-sm);
+  background: #ffffff;
+  border: 1px solid var(--hyundai-sand);
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.wizard-service-label i {
+  font-size: 1.8rem;
+  transition: var(--transition-smooth);
+}
+
+.wizard-service-card input[type="radio"]:checked + .wizard-service-label {
+  background: rgba(0, 44, 95, 0.03);
+  border-color: var(--hyundai-navy);
+  color: var(--hyundai-navy);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 44, 95, 0.05);
+}
+
+.wizard-service-card input[type="radio"]:checked + .wizard-service-label i {
+  color: var(--hyundai-navy);
+  transform: scale(1.15);
+}
+
+.wizard-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  border-top: 1.5px solid var(--hyundai-sand);
+  padding-top: 24px;
+}
+
+/* Success Voucher Modal */
+.success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background: rgba(0, 44, 95, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+}
+
+.success-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.success-box {
+  width: 90%;
+  max-width: 500px;
+  padding: 40px;
+  text-align: center;
+  background: #ffffff;
+  border: 1.5px solid var(--hyundai-sand);
+  box-shadow: 0 20px 50px rgba(0, 44, 95, 0.12);
+}
+
+.success-icon-wrap {
+  width: 80px;
+  height: 80px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid var(--accent-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: var(--accent-green);
+  margin: 0 auto 24px;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+.success-box h2 {
+  font-size: 1.8rem;
+  color: var(--hyundai-navy);
+  margin-bottom: 12px;
+}
+
+.success-box p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+/* Elegant Ticket / Voucher Style */
+.voucher-ticket {
+  background: radial-gradient(circle at left, transparent 10px, var(--hyundai-light-sand) 10px),
+              radial-gradient(circle at right, transparent 10px, var(--hyundai-light-sand) 10px);
+  background-position: left, right;
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  border: 1.5px dashed var(--hyundai-sand);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 30px;
+}
+
+.voucher-header {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.voucher-title {
+  font-size: 1.15rem;
+  color: var(--hyundai-navy);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.voucher-code-wrap {
+  background: var(--hyundai-navy);
+  border: 1px solid var(--hyundai-navy);
+  padding: 10px;
+  font-family: monospace;
+  font-size: 1.25rem;
+  color: #ffffff;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* -------------------------------------------------------------
+   9. Salesperson Profile Card Section
+------------------------------------------------------------- */
+.advisor-section {
+  background: radial-gradient(circle at right center, rgba(228, 220, 211, 0.3), var(--hyundai-light-sand));
+}
+
+.advisor-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .advisor-wrap {
+    grid-template-columns: 1fr 1.3fr;
+  }
+}
+
+.advisor-card-main {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid var(--glass-border);
+}
+
+.advisor-photo-wrap {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3.5px solid var(--hyundai-navy);
+  padding: 4px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 44, 95, 0.1);
+}
+
+.advisor-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.advisor-card-main h3 {
+  font-size: 1.6rem;
+  color: var(--hyundai-navy);
+  margin-bottom: 4px;
+}
+
+.advisor-card-main .title-badge {
+  background: rgba(0, 44, 95, 0.05);
+  border: 1px solid var(--hyundai-navy);
+  color: var(--hyundai-navy);
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.advisor-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  border-top: 1.5px solid var(--hyundai-sand);
+  padding-top: 24px;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-box strong {
+  font-size: 1.6rem;
+  color: var(--hyundai-navy);
+}
+
+.stat-box span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Advisor Testimonials */
+.advisor-pitch h3 {
+  font-size: 2rem;
+  color: var(--hyundai-navy);
+  margin-bottom: 24px;
+}
+
+.pitch-points {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pitch-point {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.pitch-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 44, 95, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hyundai-navy);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 44, 95, 0.1);
+}
+
+.pitch-text h4 {
+  font-size: 1.05rem;
+  color: var(--hyundai-navy);
+  margin-bottom: 4px;
+}
+
+.pitch-text p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* -------------------------------------------------------------
+   10. Sticky Floating Consultant Widget (Bottom Right)
+------------------------------------------------------------- */
+.advisor-floating-card {
+  position: fixed;
+  bottom: 80px;
+  right: 24px;
+  width: 300px;
+  z-index: 100;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid var(--hyundai-sand);
+  box-shadow: 0 10px 30px rgba(0, 44, 95, 0.1);
+  cursor: default;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              width 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.close-floating-card {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.close-floating-card:hover {
+  color: var(--hyundai-navy);
+}
+
+.advisor-float-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.advisor-float-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--hyundai-navy);
+  object-fit: cover;
+}
+
+.advisor-float-meta h4 {
+  font-size: 0.95rem;
+  color: var(--hyundai-navy);
+  font-weight: 700;
+}
+
+.advisor-float-meta p {
+  font-size: 0.75rem;
+  color: var(--hyundai-cyan);
+  font-weight: 600;
+}
+
+.advisor-float-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.advisor-float-cta .btn {
+  padding: 10px;
+  font-size: 0.85rem;
+}
+
+/* Minimized State */
+.advisor-floating-card.minimized {
+  width: 60px;
+  height: 60px;
+  padding: 4px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.advisor-floating-card.minimized .close-floating-card,
+.advisor-floating-card.minimized .advisor-float-meta,
+.advisor-floating-card.minimized .advisor-float-cta {
+  display: none;
+}
+
+.advisor-floating-card.minimized .advisor-float-header {
+  margin: 0;
+}
+
+.advisor-floating-card.minimized .advisor-float-header img {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--hyundai-navy);
+}
+
+/* Global Floating Action Buttons (Zalo & Call) */
+.float-actions {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+
+.float-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 44, 95, 0.15);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.float-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.float-btn.call {
+  background-color: var(--accent-green);
+}
+
+.float-btn.zalo {
+  background-color: #0068ff;
+}
+
+.float-btn.zalo span {
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+/* -------------------------------------------------------------
+   11. Footer Section (Navy & Slate tone)
+------------------------------------------------------------- */
+.main-footer {
+  background: var(--hyundai-navy);
+  border-top: 1.5px solid var(--hyundai-sand);
+  padding: 60px 0 20px;
+  color: #ffffff;
+}
+
+.main-footer h3 {
+  color: #ffffff; /* Footer headers are white on navy background */
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-col h3::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--hyundai-cyan);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-contact-info p {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-contact-info i {
+  color: var(--hyundai-cyan);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.footer-map-wrap {
+  width: 100%;
+  height: 150px;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+  }
+}
+
+/* -------------------------------------------------------------
+   12. Responsive Adjustments
+------------------------------------------------------------- */
+@media (max-width: 991px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .section {
+    padding: 80px 0;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    border-left: 1.5px solid var(--hyundai-sand);
+    flex-direction: column;
+    padding: 100px 40px;
+    align-items: flex-start;
+    gap: 30px;
+    transition: var(--transition-smooth);
+    z-index: 100;
+    box-shadow: -10px 0 30px rgba(0, 44, 95, 0.05);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+
+  .header-cta {
+    display: none;
+  }
+  
+  .showroom-visual {
+    min-height: 320px;
+  }
+  
+  .compare-grid {
+    grid-template-columns: 0.9fr 1.1fr 1.1fr;
+  }
+  
+  .compare-cell {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .compare-cell.header-cell {
+    padding: 16px 8px;
+    min-height: 145px;
+  }
+  
+  .compare-cell.header-cell img {
+    max-width: 100px;
+    max-height: 55px;
+  }
+}
+
+@media (max-width: 575px) {
+  .showroom-nav {
+    gap: 6px;
+  }
+  
+  .showroom-car-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .car-name-wrap h1 {
+    font-size: 2.2rem;
+  }
+  
+  .showroom-specs {
+    grid-template-columns: 1fr;
+  }
+  
+  .calc-inputs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group-full {
+    grid-column: span 1;
+  }
+  
+  .chart-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .wizard-services-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .compare-drawer {
+    flex-direction: column;
+    align-items: stretch;
+    width: 95%;
+    gap: 12px;
+  }
+  
+  .compare-drawer-left {
+    justify-content: space-between;
+  }
+  
+  .compare-drawer-actions {
+    justify-content: flex-end;
+  }
+
+  .compare-grid {
+    grid-template-columns: 0.85fr 1.1fr 1.1fr;
+  }
+  
+  .compare-cell {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+  
+  .compare-cell.header-cell {
+    padding: 10px 4px;
+    min-height: 120px;
+  }
+  
+  .compare-cell.header-cell img {
+    max-width: 80px;
+    max-height: 40px;
+  }
+  
+  .compare-cell.header-cell h3 {
+    font-size: 0.95rem;
+  }
+  
+  .compare-cell.bullet-cell ul {
+    padding-left: 12px;
+    font-size: 0.75rem;
+  }
+}
