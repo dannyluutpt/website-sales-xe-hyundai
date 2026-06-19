@@ -1,11 +1,11 @@
 // Main Orchestration and Event Handling Script
 
-import { HYUNDAI_CARS } from "./data.js?v=2.4";
-import { initParticles } from "./particles.js?v=2.4";
-import { initHeroCarousel } from "./carousel.js?v=2.4";
-import { setupShowroom } from "./showroom.js?v=2.4";
-import { setupCalculator } from "./calculator.js?v=2.4";
-import { setupCompare } from "./compare.js?v=2.4";
+import { HYUNDAI_CARS } from "./data.js?v=2.5";
+import { initParticles } from "./particles.js?v=2.5";
+import { initHeroCarousel } from "./carousel.js?v=2.5";
+import { setupShowroom } from "./showroom.js?v=2.5";
+import { setupCalculator } from "./calculator.js?v=2.5";
+import { setupCompare } from "./compare.js?v=2.5";
 
 // Helper to format currency
 function formatVND(amount) {
@@ -94,9 +94,16 @@ function renderFleet() {
         calcCarSelect.dispatchEvent(new Event("change"));
 
         // Scroll to calculator
-        document.getElementById("calculator-section").scrollIntoView({
-          behavior: "smooth"
-        });
+        const calcSection = document.getElementById("calculator-section");
+        if (calcSection) {
+          calcSection.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
+      } else {
+        // Explicitly redirect to the calculator page
+        e.preventDefault();
+        window.location.href = `calculator.html?car=${car.id}`;
       }
     });
 

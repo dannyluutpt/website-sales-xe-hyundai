@@ -208,6 +208,7 @@ export function setupCalculator() {
     const optionExists = options.some(opt => opt.value === preselectedCar);
     if (optionExists) {
       calcCarSelect.value = preselectedCar;
+      calcCarSelect.dispatchEvent(new Event("change"));
     }
   }
 

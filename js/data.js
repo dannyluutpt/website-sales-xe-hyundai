@@ -9,11 +9,11 @@ export const HYUNDAI_CARS = [
     priceRange: "439.000.000 - 569.000.000 VNĐ",
     image: "https://hyundai-api.thanhcong.vn/storage/uploads/product/Accent_662x376.png",
     colors: [
-      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.05) contrast(1.02) saturate(0.9)" },
-      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.25) contrast(1.3) saturate(0.8)" },
-      { name: "Đỏ Quyến Rũ", hex: "#a8121a", filter: "hue-rotate(342deg) saturate(1.7) brightness(0.65) contrast(1.15)" },
-      { name: "Bạc Ánh Kim", hex: "#b4b8bc", filter: "brightness(0.8) contrast(1.1) saturate(0.2)" },
-      { name: "Vàng Cát", hex: "#c8b195", filter: "hue-rotate(18deg) saturate(0.7) brightness(0.85) contrast(1.05)" }
+      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.0) contrast(1.0) saturate(0.1)" },
+      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.2) contrast(1.3) saturate(0)" },
+      { name: "Đỏ Quyến Rũ", hex: "#a8121a", filter: "sepia(1) saturate(7) hue-rotate(325deg) brightness(0.65) contrast(1.2)" },
+      { name: "Bạc Ánh Kim", hex: "#b4b8bc", filter: "brightness(0.85) contrast(1.0) saturate(0)" },
+      { name: "Vàng Cát", hex: "#c8b195", filter: "sepia(0.8) saturate(2) hue-rotate(5deg) brightness(0.95) contrast(1.0)" }
     ],
     specs: {
       engine: "Smartstream G1.5 MPI",
@@ -39,11 +39,11 @@ export const HYUNDAI_CARS = [
     priceRange: "599.000.000 - 699.000.000 VNĐ",
     image: "https://hyundai-api.thanhcong.vn/storage/uploads/product/20250603/Creta.png",
     colors: [
-      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.05) contrast(1.02) saturate(0.9)" },
-      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.25) contrast(1.3) saturate(0.8)" },
-      { name: "Đỏ Quyến Rũ", hex: "#a8121a", filter: "hue-rotate(342deg) saturate(1.7) brightness(0.65) contrast(1.15)" },
-      { name: "Xám Kim Loại", hex: "#7a7e83", filter: "brightness(0.65) contrast(1.2) saturate(0.1)" },
-      { name: "Xanh Đại Dương", hex: "#103c6b", filter: "hue-rotate(200deg) saturate(1.3) brightness(0.55) contrast(1.2)" }
+      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.0) contrast(1.0) saturate(0.1)" },
+      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.2) contrast(1.3) saturate(0)" },
+      { name: "Đỏ Quyến Rũ", hex: "#a8121a", filter: "sepia(1) saturate(7) hue-rotate(325deg) brightness(0.65) contrast(1.2)" },
+      { name: "Xám Kim Loại", hex: "#7a7e83", filter: "brightness(0.6) contrast(1.1) saturate(0)" },
+      { name: "Xanh Đại Dương", hex: "#103c6b", filter: "sepia(1) saturate(5) hue-rotate(185deg) brightness(0.45) contrast(1.2)" }
     ],
     specs: {
       engine: "Smartstream G1.5 MPI",
@@ -69,11 +69,11 @@ export const HYUNDAI_CARS = [
     priceRange: "769.000.000 - 989.000.000 VNĐ",
     image: "https://hyundai-api.thanhcong.vn/storage/uploads/product/20241008/web-tucson.png",
     colors: [
-      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.05) contrast(1.02) saturate(0.9)" },
-      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.25) contrast(1.3) saturate(0.8)" },
-      { name: "Đỏ Lịch Lãm", hex: "#8c151c", filter: "hue-rotate(338deg) saturate(1.5) brightness(0.55) contrast(1.2)" },
-      { name: "Bạc Ánh Kim", hex: "#b4b8bc", filter: "brightness(0.8) contrast(1.1) saturate(0.2)" },
-      { name: "Vàng Cát", hex: "#c8b195", filter: "hue-rotate(18deg) saturate(0.7) brightness(0.85) contrast(1.05)" }
+      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.0) contrast(1.0) saturate(0.1)" },
+      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.2) contrast(1.3) saturate(0)" },
+      { name: "Đỏ Lịch Lãm", hex: "#8c151c", filter: "sepia(1) saturate(6.5) hue-rotate(325deg) brightness(0.55) contrast(1.2)" },
+      { name: "Bạc Ánh Kim", hex: "#b4b8bc", filter: "brightness(0.85) contrast(1.0) saturate(0)" },
+      { name: "Vàng Cát", hex: "#c8b195", filter: "sepia(0.8) saturate(2) hue-rotate(5deg) brightness(0.95) contrast(1.0)" }
     ],
     specs: {
       engine: "Smartstream G2.0 / D2.0 / 1.6 T-GDi",
@@ -99,11 +99,11 @@ export const HYUNDAI_CARS = [
     priceRange: "1.069.000.000 - 1.365.000.000 VNĐ",
     image: "https://hyundai-api.thanhcong.vn/storage/uploads/product/web-santafe.png",
     colors: [
-      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.05) contrast(1.02) saturate(0.9)" },
-      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.25) contrast(1.3) saturate(0.8)" },
-      { name: "Xám Đồng Matte", hex: "#8c8780", filter: "hue-rotate(25deg) saturate(0.4) brightness(0.65) contrast(1.1)" },
-      { name: "Vàng Cát Lịch Lãm", hex: "#baae9d", filter: "hue-rotate(20deg) saturate(0.6) brightness(0.8) contrast(1.02)" },
-      { name: "Đỏ Ruby", hex: "#7a0c10", filter: "hue-rotate(335deg) saturate(1.4) brightness(0.48) contrast(1.2)" }
+      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.0) contrast(1.0) saturate(0.1)" },
+      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.2) contrast(1.3) saturate(0)" },
+      { name: "Xám Đồng Matte", hex: "#8c8780", filter: "sepia(0.4) saturate(0.8) hue-rotate(10deg) brightness(0.7) contrast(1.1)" },
+      { name: "Vàng Cát Lịch Lãm", hex: "#baae9d", filter: "sepia(0.8) saturate(1.8) hue-rotate(5deg) brightness(0.95) contrast(1.0)" },
+      { name: "Đỏ Ruby", hex: "#7a0c10", filter: "sepia(1) saturate(6) hue-rotate(325deg) brightness(0.45) contrast(1.2)" }
     ],
     specs: {
       engine: "Smartstream G2.5 / G2.5 T-GDi Turbo",
@@ -129,11 +129,11 @@ export const HYUNDAI_CARS = [
     priceRange: "1.469.000.000 - 1.589.000.000 VNĐ",
     image: "https://hyundai-api.thanhcong.vn/storage/uploads/product/PALISADE.png",
     colors: [
-      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.05) contrast(1.02) saturate(0.9)" },
-      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.25) contrast(1.3) saturate(0.8)" },
-      { name: "Xanh Lục Bảo", hex: "#1c3c34", filter: "hue-rotate(130deg) saturate(0.6) brightness(0.42) contrast(1.2)" },
-      { name: "Đỏ Đô Lịch Lãm", hex: "#7a0c10", filter: "hue-rotate(335deg) saturate(1.4) brightness(0.48) contrast(1.2)" },
-      { name: "Xám Ánh Kim", hex: "#707478", filter: "brightness(0.65) contrast(1.1) saturate(0.1)" }
+      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.0) contrast(1.0) saturate(0.1)" },
+      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.2) contrast(1.3) saturate(0)" },
+      { name: "Xanh Lục Bảo", hex: "#1c3c34", filter: "sepia(1) saturate(4.5) hue-rotate(90deg) brightness(0.4) contrast(1.25)" },
+      { name: "Đỏ Đô Lịch Lãm", hex: "#7a0c10", filter: "sepia(1) saturate(6.2) hue-rotate(325deg) brightness(0.48) contrast(1.2)" },
+      { name: "Xám Ánh Kim", hex: "#707478", filter: "brightness(0.65) contrast(1.1) saturate(0)" }
     ],
     specs: {
       engine: "Diesel R2.2 CRDi",
@@ -159,10 +159,10 @@ export const HYUNDAI_CARS = [
     priceRange: "820.000.000 - 974.000.000 VNĐ",
     image: "https://hyundai-api.thanhcong.vn/storage/uploads/product/CUSTIN.png",
     colors: [
-      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.05) contrast(1.02) saturate(0.9)" },
-      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.25) contrast(1.3) saturate(0.8)" },
-      { name: "Bạc Ánh Kim", hex: "#b4b8bc", filter: "brightness(0.8) contrast(1.1) saturate(0.2)" },
-      { name: "Xanh Midnight", hex: "#162035", filter: "hue-rotate(210deg) saturate(0.8) brightness(0.45) contrast(1.1)" }
+      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.0) contrast(1.0) saturate(0.1)" },
+      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.2) contrast(1.3) saturate(0)" },
+      { name: "Bạc Ánh Kim", hex: "#b4b8bc", filter: "brightness(0.85) contrast(1.0) saturate(0)" },
+      { name: "Xanh Midnight", hex: "#162035", filter: "sepia(1) saturate(4) hue-rotate(190deg) brightness(0.4) contrast(1.2)" }
     ],
     specs: {
       engine: "Smartstream 1.5 T-GDi / 2.0 T-GDi Turbo",
@@ -188,11 +188,11 @@ export const HYUNDAI_CARS = [
     priceRange: "489.000.000 - 599.000.000 VNĐ",
     image: "https://hyundai-api.thanhcong.vn/storage/uploads/product/20260324/New-Stargazer.png",
     colors: [
-      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.05) contrast(1.02) saturate(0.9)" },
-      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.25) contrast(1.3) saturate(0.8)" },
-      { name: "Đỏ Thể Thao", hex: "#a8121a", filter: "hue-rotate(342deg) saturate(1.7) brightness(0.65) contrast(1.15)" },
-      { name: "Xám Nhám (Matte)", hex: "#606265", filter: "brightness(0.6) contrast(1.25) saturate(0.05)" },
-      { name: "Vàng Cát", hex: "#c8b195", filter: "hue-rotate(18deg) saturate(0.7) brightness(0.85) contrast(1.05)" }
+      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.0) contrast(1.0) saturate(0.1)" },
+      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.2) contrast(1.3) saturate(0)" },
+      { name: "Đỏ Thể Thao", hex: "#a8121a", filter: "sepia(1) saturate(7) hue-rotate(325deg) brightness(0.65) contrast(1.2)" },
+      { name: "Xám Nhám (Matte)", hex: "#606265", filter: "brightness(0.55) contrast(1.15) saturate(0)" },
+      { name: "Vàng Cát", hex: "#c8b195", filter: "sepia(0.8) saturate(2) hue-rotate(5deg) brightness(0.95) contrast(1.0)" }
     ],
     specs: {
       engine: "Smartstream G1.5 MPI",
@@ -218,10 +218,10 @@ export const HYUNDAI_CARS = [
     priceRange: "1.300.000.000 - 1.450.000.000 VNĐ",
     image: "https://hyundai-api.thanhcong.vn/storage/uploads/product/IONIQ5.png",
     colors: [
-      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.05) contrast(1.02) saturate(0.9)" },
-      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.25) contrast(1.3) saturate(0.8)" },
-      { name: "Bạc Vũ Trụ", hex: "#c0c4c8", filter: "brightness(0.85) contrast(1.05) saturate(0.1)" },
-      { name: "Xám Vàng Nhám (Gravity Matte)", hex: "#a4a199", filter: "hue-rotate(30deg) saturate(0.35) brightness(0.78) contrast(1.08)" }
+      { name: "Trắng Ngọc Trai", hex: "#f0f3f5", filter: "brightness(1.0) contrast(1.0) saturate(0.1)" },
+      { name: "Đen Huyền Bí", hex: "#151516", filter: "brightness(0.2) contrast(1.3) saturate(0)" },
+      { name: "Bạc Vũ Trụ", hex: "#c0c4c8", filter: "brightness(0.85) contrast(1.0) saturate(0)" },
+      { name: "Xám Vàng Nhám (Gravity Matte)", hex: "#a4a199", filter: "sepia(0.3) saturate(0.7) hue-rotate(15deg) brightness(0.75) contrast(1.1)" }
     ],
     specs: {
       engine: "Động cơ điện đơn (RWD) hiệu năng cao",
