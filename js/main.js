@@ -1,11 +1,11 @@
 // Main Orchestration and Event Handling Script
 
-import { HYUNDAI_CARS } from "./data.js?v=2.3";
-import { initParticles } from "./particles.js?v=2.3";
-import { initHeroCarousel } from "./carousel.js?v=2.3";
-import { setupShowroom } from "./showroom.js?v=2.3";
-import { setupCalculator } from "./calculator.js?v=2.3";
-import { setupCompare } from "./compare.js?v=2.3";
+import { HYUNDAI_CARS } from "./data.js?v=2.4";
+import { initParticles } from "./particles.js?v=2.4";
+import { initHeroCarousel } from "./carousel.js?v=2.4";
+import { setupShowroom } from "./showroom.js?v=2.4";
+import { setupCalculator } from "./calculator.js?v=2.4";
+import { setupCompare } from "./compare.js?v=2.4";
 
 // Helper to format currency
 function formatVND(amount) {
@@ -78,17 +78,18 @@ function renderFleet() {
           <button class="btn btn-secondary btn-add-compare" data-car="${car.id}" title="Thêm vào so sánh">
             <i class="fas fa-exchange-alt"></i> So sánh
           </button>
-          <button class="btn btn-primary btn-calc-trigger" data-car="${car.id}">
+          <a href="calculator.html?car=${car.id}" class="btn btn-primary btn-calc-trigger" data-car="${car.id}">
             <i class="fas fa-calculator"></i> Tính lăn bánh
-          </button>
+          </a>
         </div>
       </div>
     `;
 
     // Add event listener to scroll and pre-select car in calculator
-    card.querySelector(".btn-calc-trigger").addEventListener("click", () => {
+    card.querySelector(".btn-calc-trigger").addEventListener("click", (e) => {
       const calcCarSelect = document.getElementById("calc-car-select");
       if (calcCarSelect) {
+        e.preventDefault();
         calcCarSelect.value = car.id;
         calcCarSelect.dispatchEvent(new Event("change"));
 
@@ -96,8 +97,6 @@ function renderFleet() {
         document.getElementById("calculator-section").scrollIntoView({
           behavior: "smooth"
         });
-      } else {
-        window.location.href = `calculator.html?car=${car.id}`;
       }
     });
 
