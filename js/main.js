@@ -1,11 +1,11 @@
 // Main Orchestration and Event Handling Script
 
-import { HYUNDAI_CARS } from "./data.js?v=2.2";
-import { initParticles } from "./particles.js?v=2.2";
-import { initHeroCarousel } from "./carousel.js?v=2.2";
-import { setupShowroom } from "./showroom.js?v=2.2";
-import { setupCalculator } from "./calculator.js?v=2.2";
-import { setupCompare } from "./compare.js?v=2.2";
+import { HYUNDAI_CARS } from "./data.js?v=2.3";
+import { initParticles } from "./particles.js?v=2.3";
+import { initHeroCarousel } from "./carousel.js?v=2.3";
+import { setupShowroom } from "./showroom.js?v=2.3";
+import { setupCalculator } from "./calculator.js?v=2.3";
+import { setupCompare } from "./compare.js?v=2.3";
 
 // Helper to format currency
 function formatVND(amount) {
@@ -96,6 +96,8 @@ function renderFleet() {
         document.getElementById("calculator-section").scrollIntoView({
           behavior: "smooth"
         });
+      } else {
+        window.location.href = `calculator.html?car=${car.id}`;
       }
     });
 

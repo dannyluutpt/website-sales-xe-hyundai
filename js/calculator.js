@@ -200,6 +200,17 @@ export function setupCalculator() {
   downPaymentSlider.addEventListener("input", updateLoanCalculations);
   termSlider.addEventListener("input", updateLoanCalculations);
 
+  // Read URL query parameter for pre-selected car
+  const urlParams = new URLSearchParams(window.location.search);
+  const preselectedCar = urlParams.get("car");
+  if (preselectedCar && calcCarSelect) {
+    const options = Array.from(calcCarSelect.options);
+    const optionExists = options.some(opt => opt.value === preselectedCar);
+    if (optionExists) {
+      calcCarSelect.value = preselectedCar;
+    }
+  }
+
   // Initialize
   runUpdates();
 }
