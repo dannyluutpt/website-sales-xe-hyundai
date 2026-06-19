@@ -160,6 +160,17 @@ export function setupShowroom() {
       // The pulsing dot
       const dot = document.createElement("div");
       dot.className = "hotspot-dot";
+
+      // Toggle active class on click/tap to ensure it stays on top and visible
+      dot.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isActive = wrapper.classList.contains("active");
+        // Clear other active hotspots
+        document.querySelectorAll(".hotspot.active").forEach(h => h.classList.remove("active"));
+        if (!isActive) {
+          wrapper.classList.add("active");
+        }
+      });
       
       // Tooltip Card
       const tooltip = document.createElement("div");
@@ -168,6 +179,11 @@ export function setupShowroom() {
         <h4>${spot.title}</h4>
         <p>${spot.desc}</p>
       `;
+
+      // Prevent closing when clicking inside tooltip
+      tooltip.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
 
       wrapper.appendChild(dot);
       wrapper.appendChild(tooltip);
@@ -184,6 +200,11 @@ export function setupShowroom() {
       const carId = nav.getAttribute("data-car");
       updateShowroom(carId);
     });
+  });
+
+  // Close active hotspots when clicking outside
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".hotspot.active").forEach(h => h.classList.remove("active"));
   });
 
   // Initialize with the first car (Accent)

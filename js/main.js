@@ -1,11 +1,11 @@
 // Main Orchestration and Event Handling Script
 
-import { HYUNDAI_CARS } from "./data.js";
-import { initParticles } from "./particles.js";
-import { initHeroCarousel } from "./carousel.js";
-import { setupShowroom } from "./showroom.js";
-import { setupCalculator } from "./calculator.js";
-import { setupCompare } from "./compare.js";
+import { HYUNDAI_CARS } from "./data.js?v=2.2";
+import { initParticles } from "./particles.js?v=2.2";
+import { initHeroCarousel } from "./carousel.js?v=2.2";
+import { setupShowroom } from "./showroom.js?v=2.2";
+import { setupCalculator } from "./calculator.js?v=2.2";
+import { setupCompare } from "./compare.js?v=2.2";
 
 // Helper to format currency
 function formatVND(amount) {

@@ -672,7 +672,8 @@ a {
 }
 
 .hotspot:hover,
-.hotspot:focus-within {
+.hotspot:focus-within,
+.hotspot.active {
   z-index: 1000;
   transition: z-index 0s;
 }
@@ -739,7 +740,8 @@ a {
 }
 
 .hotspot:hover .hotspot-tooltip,
-.hotspot:focus-within .hotspot-tooltip {
+.hotspot:focus-within .hotspot-tooltip,
+.hotspot.active .hotspot-tooltip {
   opacity: 1;
   transform: translateX(-50%) scale(1) translateY(0);
   pointer-events: auto;
