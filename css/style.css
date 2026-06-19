@@ -668,6 +668,13 @@ a {
   pointer-events: auto;
   transform: translate(-50%, -50%);
   z-index: 5;
+  transition: z-index 0.3s step-end;
+}
+
+.hotspot:hover,
+.hotspot:focus-within {
+  z-index: 1000;
+  transition: z-index 0s;
 }
 
 .hotspot-dot {
@@ -731,7 +738,8 @@ a {
   text-align: left;
 }
 
-.hotspot:hover .hotspot-tooltip {
+.hotspot:hover .hotspot-tooltip,
+.hotspot:focus-within .hotspot-tooltip {
   opacity: 1;
   transform: translateX(-50%) scale(1) translateY(0);
   pointer-events: auto;
